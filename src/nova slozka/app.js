@@ -1,12 +1,12 @@
 ﻿let organigramContainer = null;
 let searchInput = null;
 let treeRoots = [];
-const apiUrl = `${window.location.origin}/gugugaga/api/employees.php`;
+const apiUrl = `${window.location.origin}/api/employees.php`;
 
 async function loadEmployees() {
   try {
     if (window.location.protocol === 'file:') {
-      throw new Error('Soubor je otevřený z disku. Otevřete stránku přes webový server (http://localhost/gugugaga/api/employees.php).');
+      throw new Error('Soubor je otevřený z disku. Otevřete stránku přes webový server (http://localhost:8080/api/employees.php).');
     }
 
     const response = await fetch(apiUrl, { cache: 'no-store' });
@@ -282,16 +282,16 @@ function applySearchFilter(query) {
 
 async function handleLogout() {
   try {
-    const response = await fetch('/gugugaga/api/logout.php', {
+    const response = await fetch('/api/logout.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
       }
     });
-    window.location.href = '/gugugaga/api/logout.php';
+    window.location.href = '/api/logout.php';
   } catch (error) {
     console.error('Logout error:', error);
-    window.location.href = '/gugugaga/api/logout.php';
+    window.location.href = '/api/logout.php';
   }
 }
 

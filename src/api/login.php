@@ -18,7 +18,7 @@ if (isset($_POST['login'])) {
     $password = $_POST['password'];
     $ip = $_SERVER['REMOTE_ADDR'];
 
-    // LDAP nastavení
+    /* // LDAP nastavení
     $ldap_server = "ldap://DC01.praxe2.loc";
     $ldap_domain = "praxe2.loc";
     $ldap_dn = "DC=praxe2,DC=loc";
@@ -34,7 +34,8 @@ if (isset($_POST['login'])) {
     }
     
     // Ověření uživatele
-    $bind = @ldap_bind($ldap, $username, $password);
+    $bind = @ldap_bind($ldap, $username, $password); */
+    $bind = true;
 
 
     if ($bind) {
@@ -48,7 +49,7 @@ if (isset($_POST['login'])) {
             $stmt->execute([$username, $ip]);
 
             $_SESSION['user'] = $username;
-            header("Location: http://localhost/gugugaga/nova%20slozka");
+            header("Location: http://localhost:8080/nova%20slozka/index.html");
             exit;
         } else {
             $stmt = $conn->prepare("INSERT INTO users (username, created_at) VALUES (?, NOW())");

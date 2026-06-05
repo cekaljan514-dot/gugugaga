@@ -1,0 +1,33 @@
+services:
+  web:
+    build: .
+    container_name: php_app_web
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src:/var/www/html
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASSWORD=root_password
+      - DB_NAME=praxe1
+
+  db:
+    image: mysql:8.0
+    container_name: php_app_db
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: praxe1
+    volumes:
+      # Perzistentní úložiště pro data, aby se nesmazala při vypnutí kontejneru
+      - mysql_data:/var/lib/mysql
+      # Automatický import dumpu při prvním startu
+      - ./dump-praxe1.sql:/docker-entrypoint-initdb.d/dump.sql
+
+volumes:
+  mysql_data:
