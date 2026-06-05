@@ -288,7 +288,7 @@ async function handleLogout() {
         'Content-Type': 'application/x-www-form-urlencoded',
       }
     });
-    window.location.href = '/api/logout.php';
+    window.location.href = 'gugugaga/api/logout.php';
   } catch (error) {
     console.error('Logout error:', error);
     window.location.href = '/api/logout.php';

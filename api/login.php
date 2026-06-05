@@ -44,7 +44,7 @@ if (isset($_POST['login'])) {
 
             $_SESSION['user'] = $username;
 
-            header("Location: http://192.168.92.200/nova%20slozka");
+            header("Location: http://localhost/gugugaga/nova%20slozka");
             exit;
         } else {
             // Uživatel neexistuje → vytvořit, ale NEREDIRECTOVAT

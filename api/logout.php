@@ -27,6 +27,6 @@ session_destroy();
 <html>
 <body>
     <h2>Byl jste úspěšně odhlášen.</h2>
-    <a href="http://192.168.92.200/api/login.php">Přihlásit se znovu</a>
+    <a href="http://localhost/gugugaga/api/login.php">Přihlásit se znovu</a>
 </body>
 </html>
