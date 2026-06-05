@@ -13,20 +13,27 @@ $conn = new PDO($dsn, $user, $password, [
 if (isset($_POST['login'])) {
 
     $username = $_POST['username'];
+    $password = $_POST['password'];
     $ip = $_SERVER['REMOTE_ADDR'];
 
     // LDAP nastavení
-    $ldap_server = "ldap://DC01.praxxe2.loc";
+    $ldap_server = "ldap://DC01.praxe2.loc";
     $ldap_domain = "praxe2.loc";
-    $ldap_dn = "CN=$username,OU=Users,OU=MyCompany,DC=praxe2,DC=loc";
+    $ldap_dn = "DC=praxe2,DC=loc";
 
     // Připojení k LDAP
     $ldap = ldap_connect($ldap_server);
     ldap_set_option($ldap, LDAP_OPT_PROTOCOL_VERSION, 3);
     ldap_set_option($ldap, LDAP_OPT_REFERRALS, 0);
 
-    // Ověření uživatele (bez hesla)
-    $bind = @ldap_bind($ldap, $ldap_dn);
+    //Pokud není v username @, přidáme doménu
+    if (strpos($username, '@') === false) {
+        $username .= '@' . $ldap_domain;
+    }
+    
+    // Ověření uživatele
+    $bind = @ldap_bind($ldap, $username, $password);
+
 
     if ($bind) {
         echo "LDAP OK<br>";

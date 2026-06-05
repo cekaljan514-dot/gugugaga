@@ -282,7 +282,7 @@ function applySearchFilter(query) {
 
 async function handleLogout() {
   try {
-    const response = await fetch('/api/logout.php', {
+    const response = await fetch('/gugugaga/api/logout.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -291,7 +291,7 @@ async function handleLogout() {
     window.location.href = '/gugugaga/api/logout.php';
   } catch (error) {
     console.error('Logout error:', error);
-    window.location.href = '/api/logout.php';
+    window.location.href = '/gugugaga/api/logout.php';
   }
 }
 
