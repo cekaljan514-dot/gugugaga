@@ -73,6 +73,7 @@ if (isset($_POST['login'])) {
 <body>
 <form method="post">
     Username: <input type="text" name="username" required><br>
+    Password: <input type="password" name="password" required><br>
     <button type="submit" name="login">Přihlásit</button>
 </form>
 </body>
