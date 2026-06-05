@@ -1,12 +1,12 @@
 ﻿let organigramContainer = null;
 let searchInput = null;
 let treeRoots = [];
-const apiUrl = `${window.location.origin}/api/employees.php`;
+const apiUrl = `${window.location.origin}/gugugaga/api/employees.php`;
 
 async function loadEmployees() {
   try {
     if (window.location.protocol === 'file:') {
-      throw new Error('Soubor je otevřený z disku. Otevřete stránku přes webový server (http://localhost/api/employees.php).');
+      throw new Error('Soubor je otevřený z disku. Otevřete stránku přes webový server (http://localhost/gugugaga/api/employees.php).');
     }
 
     const response = await fetch(apiUrl, { cache: 'no-store' });
