@@ -41,7 +41,7 @@ session_destroy();
         <div class="success-panel">
             <h1 class="success-title">Byl jste úspěšně odhlášen</h1>
             <p class="success-text">Vaše relace byla bezpečně ukončena. Děkujeme, že jste používali SILON ORGANIGRAM.</p>
-            <a href="http://localhost/gugugaga/api/login.php" class="btn-link">Přihlásit se znovu</a>
+            <a href="http://localhost:8080/api/login.php" class="btn-link">Přihlásit se znovu</a>
         </div>
     </div>
 </body>
